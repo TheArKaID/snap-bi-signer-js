@@ -1,0 +1,13 @@
+{
+  "name": "snap-bi-signer",
+  "author": "TheArKa <arka.progammer@gmail.com>",
+  "module": "index.ts",
+  "type": "module",
+  "version": "1.0.0",
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  }
+}
