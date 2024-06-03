@@ -24,15 +24,21 @@ function getRelativeUrl(fullUrl: string) {
 function getSortedQueryString(query: ParsedUrlQuery): string{
     const params = [];
     for (const key in query) {
-        if (Array.isArray(query[key])) {
-            query[key].sort().forEach(val => params.push([key, val]));
+        const oneQuery = query[key]
+        if (Array.isArray(oneQuery)) {
+            oneQuery.sort().forEach((val: any) => {
+                return params.push([key, val]);
+            });
         } else {
-            params.push([key, query[key]]);
+            params.push([key, oneQuery]);
         }
     }
     params.sort((a, b) => {
         if (a[0] && b[0]) {
-            return a[0].localeCompare(b[0]) || (a[1] && b[1] ? a[1].localeCompare(b[1]) : 0);
+            const a0 = a[0];
+            const b0 = b[0];
+
+            return a0.localeCompare(b0) || (a[1] && b[1] ? a[1].localeCompare(b[1]) : 0);
         }
         return 0;
     });

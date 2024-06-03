@@ -3,7 +3,7 @@
   "author": "TheArKa <arka.progammer@gmail.com>",
   "module": "index.ts",
   "type": "module",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "devDependencies": {
     "@types/bun": "latest"
   },
