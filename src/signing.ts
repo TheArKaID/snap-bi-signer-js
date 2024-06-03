@@ -15,11 +15,11 @@ function asymmetricSignature(clientID: string, privateKey: string): { signature:
     };
 }
 
-function symmetricSignature({ clientSecret, HTTPMethod, RelativeUrl, AccessToken, RequestBody, Timestamp }: { clientSecret: string, HTTPMethod: string, RelativeUrl: string, AccessToken: string, RequestBody: object, Timestamp: string }): string {
-    const XRequestBody = Object.keys(RequestBody).length ? hashRequestBody(RequestBody) : '';
-    const XRelativeUrl = getRelativeUrl(RelativeUrl);
-    const StringToSign = `${HTTPMethod}:${XRelativeUrl}:${AccessToken}:${XRequestBody}:${Timestamp}`;
-    return crypto.createHmac('sha512', clientSecret).update(StringToSign).digest('base64');
+function symmetricSignature({ clientSecret, httpMethod, relativeUrl, accessToken, requestBody, timestamp }: { clientSecret: string, httpMethod: string, relativeUrl: string, accessToken: string, requestBody: object, timestamp: string }): string {
+    const xRequestBody = Object.keys(requestBody).length ? hashRequestBody(requestBody) : '';
+    const xRelativeUrl = getRelativeUrl(relativeUrl);
+    const stringToSign = `${httpMethod}:${xRelativeUrl}:${accessToken}:${xRequestBody}:${timestamp}`;
+    return crypto.createHmac('sha512', clientSecret).update(stringToSign).digest('base64');
 }
 
 export {

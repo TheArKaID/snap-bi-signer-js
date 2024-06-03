@@ -16,15 +16,15 @@ import { asymmetricSignature, symmetricSignature } from "./signing";
 const privateKey = '' // Your private key
 const clientID = '' // Your client ID
 const clientSecret = '' // Your client secret
-const HTTPMethod = '' // HTTP method used
-const RelativeUrl = '' // Relative URL
-const AccessToken = '' // Access token
-const RequestBody = '' // Request body
-const Timestamp = '' // Timestamp used
+const httpMethod = '' // HTTP method used
+const relativeUrl = '' // Relative URL
+const accessToken = '' // Access token
+const requestBody = '' // Request body
+const timestamp = '' // Timestamp used
 
 const asymmetricData = asymmetricSignature(clientID, privateKey)
 
-const symmetricData = symmetricSignature({ clientSecret, HTTPMethod, RelativeUrl, AccessToken, RequestBody, Timestamp })
+const symmetricData = symmetricSignature({ clientSecret, httpMethod, relativeUrl, accessToken, requestBody, timestamp })
 ```
 `asymmetricSignature` will get you two things, the final result of signature,and the timestamp used. You can use this timestamp to validate the signature.
 While `symmetricSignature` will only get you the final result of signature.
