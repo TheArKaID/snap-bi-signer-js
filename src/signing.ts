@@ -2,7 +2,7 @@ import { getISOWithoutMilliseconds } from './timestamp';
 import { hashRequestBody, getRelativeUrl } from './support';
 import crypto from 'crypto';
 
-function asymmetricSignature(clientID: string, privateKey: string): { signature: string, timestamp: string } {
+function asymmetricSignature({clientID, privateKey}:{clientID: string, privateKey: string}): { signature: string, timestamp: string } {
     const timestamp = getISOWithoutMilliseconds(new Date());
 
     const signature = crypto.createSign('RSA-SHA256')
