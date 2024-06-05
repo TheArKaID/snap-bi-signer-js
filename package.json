@@ -1,13 +1,17 @@
 {
   "name": "snap-bi-signer",
-  "author": "TheArKa <arka.progammer@gmail.com>",
+  "author": "Arifia Kasastra <arka.progammer@gmail.com>",
   "module": "index.ts",
   "type": "module",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "devDependencies": {
     "@types/bun": "latest"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TheArKaID/snap-bi-signer-js.git"
   }
 }
