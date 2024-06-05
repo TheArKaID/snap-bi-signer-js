@@ -8,7 +8,7 @@ This process follows the standards set out in the [Standar Teknis dan Keamanan](
 ## How to use
 Why I wrote this? Because I found the documentation to be a bit confusing and I wanted to make sure I understood it correctly. I hope this helps you too.
 ### You access PJP API
-When you as a Partner/Mitra accessing PJP API, you need to sign the request with your private key. The signature is then validated by PJP using your public key.
+When you as a Partner/Mitra accessing PJP API, you need to sign the request with your Private Key, and the signature is then validated by PJP using your public key (Asymmetric).
 
 ```typescript
 import { asymmetricSignature, symmetricSignature } from "./signing";
@@ -22,9 +22,9 @@ const accessToken = '' // Access token
 const requestBody = '' // Request body
 const timestamp = '' // Timestamp used
 
-const asymmetricData = asymmetricSignature(clientID, privateKey)
+const asymmetricData = asymmetricSignature({clientID, privateKey})
 
-const symmetricData = symmetricSignature({ clientSecret, httpMethod, relativeUrl, accessToken, requestBody, timestamp })
+const symmetricData = symmetricSignature({clientSecret, httpMethod, relativeUrl, accessToken, requestBody, timestamp})
 ```
 `asymmetricSignature` will get you two things, the final result of signature,and the timestamp used. You can use this timestamp to validate the signature.
 While `symmetricSignature` will only get you the final result of signature.
