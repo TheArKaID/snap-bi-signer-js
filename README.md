@@ -13,14 +13,14 @@ When you as a Partner/Mitra accessing PJP API, you need to sign the request with
 ```typescript
 import { asymmetricSignature, symmetricSignature } from "./signing";
 
-const privateKey = '' // Your private key
-const clientID = '' // Your client ID
+const privateKey = '' // Your private key used to sign the request
+const clientID = '' // Your client ID/Key
 const clientSecret = '' // Your client secret
 const httpMethod = '' // HTTP method used
-const relativeUrl = '' // Relative URL
-const accessToken = '' // Access token
-const requestBody = '' // Request body
-const timestamp = '' // Timestamp used
+const relativeUrl = '' // Relative URL of the request (ex: /v1.0/transfer-va/inquiry)
+const accessToken = '' // Access token from access-token (ex: /v1.0/access-token/b2b)
+const requestBody = {} // Request body from the request.body (object)
+const timestamp = '' // Timestamp received from the request 
 
 const asymmetricData = asymmetricSignature({clientID, privateKey})
 
@@ -36,14 +36,14 @@ When PJP API accessing your API (like Transfer VA Inquiry or Payment Flagging), 
 import { verifyAsymmetricSignature, verifySymmetricSignature } from './verify';
 
 const clientSecret = '' // Your client secret
-const publicKey = '' // Sender's public key
-const clientID = '' // Your client ID
+const publicKey = '' // Paired public key from the sender
+const clientID = '' // Your client ID/Key
 const signature = '' // Signature from the sender
 const httpMethod = '' // HTTP method used
-const relativeUrl = '' // Relative URL
-const accessToken = '' // Access token
-const requestBody = '' // Request body (object)
-const timestamp = '' // Timestamp used
+const relativeUrl = '' // Relative URL of the request (ex: /v1.0/transfer-va/inquiry)
+const accessToken = '' // Access token from access-token (ex: /v1.0/access-token/b2b)
+const requestBody = {} // Request body from the request.body (object)
+const timestamp = '' // Timestamp received from the request 
 
 const asymmetricStatus = verifyAsymmetricSignature({clientID, publicKey, signature, timestamp})
 const symmetricStatus = verifySymmetricSignature({clientSecret, httpMethod, relativeUrl, accessToken, requestBody, timestamp, signature})
