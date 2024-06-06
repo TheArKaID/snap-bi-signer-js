@@ -21,8 +21,9 @@ const relativeUrl = '' // Relative URL of the request (ex: /v1.0/transfer-va/inq
 const accessToken = '' // Access token from access-token (ex: /v1.0/access-token/b2b)
 const requestBody = {} // Request body from the request.body (object)
 const timestamp = '' // Timestamp received from the request 
+const withMillisecond = false // Default false. As per ISO 8601 and [https://262.ecma-international.org/6.0/#sec-date-time-string-format)(ECMA Spec), the timestamp format includes milliseconds. But ASPI Devsite implementation does not include milliseconds in the timestamp (in contrast to Technical Documents). Set this to true if you want to include milliseconds in the timestamp.
 
-const asymmetricData = asymmetricSignature({clientID, privateKey})
+const asymmetricData = asymmetricSignature({clientID, privateKey, withMillisecond})
 
 const symmetricData = symmetricSignature({clientSecret, httpMethod, relativeUrl, accessToken, requestBody, timestamp})
 ```
