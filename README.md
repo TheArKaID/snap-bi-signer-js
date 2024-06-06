@@ -1,7 +1,7 @@
 # snap-bi-signer
 Reducing the complexity when testing on local development, and Client Simulator on ASPI Devsite for SNAP Bank Indonesia OpenAPI.
 
-This is an example of how to create and validate a signature for a Snap Bank Indonesia OpenAPI. 
+This is an example of how to create and validate signatures for Standar Nasional OpenAPI Pembayaran by Bank Indonesia (SNAP BI). 
 
 This process follows the standards set out in the [Standar Teknis dan Keamanan](https://apidevportal.aspi-indonesia.or.id/docs/standar-teknis-keamanan) version 1.0.1 November 2021.
 
