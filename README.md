@@ -20,12 +20,12 @@ const httpMethod = '' // HTTP method used
 const relativeUrl = '' // Relative URL of the request (ex: /v1.0/transfer-va/inquiry)
 const accessToken = '' // Access token from access-token (ex: /v1.0/access-token/b2b)
 const requestBody = {} // Request body from the request.body (object)
-const timestamp = '' // Timestamp received from the request 
-const withMillisecond = false // Default false. As per ISO 8601 and [https://262.ecma-international.org/6.0/#sec-date-time-string-format)(ECMA Spec), the timestamp format includes milliseconds. But ASPI Devsite implementation does not include milliseconds in the timestamp (in contrast to Technical Documents). Set this to true if you want to include milliseconds in the timestamp.
+const timestamp = '' // Your own timestamp (optional). We'll generate one for you if no.
+const withMillisecond = false // Default false (not used if you bring your own timestamp). As per ISO 8601 and [https://262.ecma-international.org/6.0/#sec-date-time-string-format)(ECMA Spec), the timestamp format includes milliseconds. But ASPI Devsite implementation does not include milliseconds in the timestamp (in contrast to Technical Documents). Set this to true if you want to include milliseconds in the timestamp.
 
-const asymmetricData = asymmetricSignature({clientID, privateKey, withMillisecond})
+const asymmetricData = asymmetricSignature({clientID, privateKey, timestamp, withMillisecond})
 
-const symmetricData = symmetricSignature({clientSecret, httpMethod, relativeUrl, accessToken, requestBody, timestamp})
+const symmetricData = symmetricSignature({clientSecret, httpMethod, relativeUrl, accessToken, requestBody, timestamp, withMillisecond})
 ```
 `asymmetricSignature` will get you two things, the final result of signature,and the timestamp used. You can use this timestamp to validate the signature.
 While `symmetricSignature` will only get you the final result of signature.
